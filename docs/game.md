@@ -100,6 +100,10 @@ pageClass: routes
 
 <Route author="HFO4" example="/nintendo/direct" path="/nintendo/direct"/>
 
+### Switch 本体更新情报（日本）
+
+<Route author="hoilc" example="/nintendo/system-update" path="/nintendo/system-update"/>
+
 ## PlayStation
 
 ### PlayStation Store 游戏列表
@@ -141,7 +145,7 @@ pageClass: routes
 
 ### Steam search
 
-<Route author="maple3142" example="/steam/search/specials=1&term=atelier" path="/steam/search/:params" :paramsDesc="['搜寻参数']">
+<Route author="maple3142" example="/steam/search/specials=1&term=atelier" path="/steam/search/:params" :paramsDesc="['搜寻参数']" radar="1">
 
 参数 params 请从 Steam 的 URL 取得
 
@@ -151,7 +155,7 @@ Example: `https://store.steampowered.com/search/?specials=1&term=atelier` 中的
 
 ### Steam news
 
-<Route author="maple3142" example="/steam/news/282800" path="/steam/news/:appids" :paramsDesc="['游戏 id']"/>
+<Route author="maple3142" example="/steam/news/282800" path="/steam/news/:appids" :paramsDesc="['游戏 id']" radar="1"/>
 
 ## SteamGifts
 
@@ -276,6 +280,12 @@ Example: `https://store.steampowered.com/search/?specials=1&term=atelier` 中的
 ### 游戏打折情况
 
 <Route author="MyFaith" example="/xiaoheihe/discount" path="xiaoheihe/discount"/>
+
+## 英雄联盟
+
+### 新闻中心
+
+<Route author="Jeason0228" example="/lol/newsindex/all" path="/lol/newsindex/:type" :paramsDesc="['栏目分类,all=全部,zh=综合,gg=公告,ss=赛事,gl=攻略,sq=社区']"/>
 
 ## 游民星空
 
