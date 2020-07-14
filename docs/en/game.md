@@ -10,6 +10,12 @@ pageClass: routes
 
 <RouteEn author="LogicJake" example="/dekudeals/most-wanted" path="/dekudeals/:type" :paramsDesc="['Category name']"/>
 
+## Epic Games Store
+
+### Free games
+
+<RouteEn author="Zyx-A" example="/epicgames/freegames" path="/epicgames/freegames"/>
+
 ## Metacritic
 
 ### Game Releases
@@ -36,6 +42,16 @@ Sorting types, default to `date`:
 
 </RouteEn>
 
+## Minecraft
+
+### Java Game Update
+
+<RouteEn author="TheresaQWQ" example="/minecraft/version" path="/minecraft/version" />
+
+### CurseForge Mod Update
+
+<RouteEn author="Indexyz" example="/curseforge/files/jei" path="/curseforge/files/:project" :paramsDesc="['Progect shortname or `Project ID`. The short name of the project can be found in the address bar, for exmaple `https://minecraft.curseforge.com/projects/non-update` to `non-update`. `Project ID` can be found in `About This Project` in `Overview`']"/>
+
 ## Nintendo
 
 ### eShop New Game Releases
@@ -61,6 +77,16 @@ Sorting types, default to `date`:
 <RouteEn author="DIYgod" example="/ps/list/STORE-MSF86012-PLUS_FTT_CONTENT" path="/ps/list/:gridName" :paramsDesc="['gridName from the list']">
 
 Compatible with lists with an URL like <https://store.playstation.com/zh-hans-hk/grid/STORE-MSF86012-PLUS_FTT_CONTENT>. For instance [PSN Free to Play](https://store.playstation.com/zh-hans-hk/grid/STORE-MSF86012-PLUS_FTT_CONTENT), the gridName is STORE-MSF86012-PLUS_FTT_CONTENT
+
+</RouteEn>
+
+### Game Product Price
+
+<RouteEn author="MisteryMonster" example="/ps/product/UP9000-CUSA00552_00-THELASTOFUS00000" path="/ps/:lang/product/:gridName" :paramsDesc="['region','gridName from the product']" radar="1">
+
+Tested some countries, it should be work for most.
+
+Compatible with Product with an URL like <https://store.playstation.com/en-us/product/HP4497-CUSA16570_00-ASIAFULLGAME0000>. For instance ['Cyberpunk 2077'](https://store.playstation.com/en-us/product/HP4497-CUSA16570_00-ASIAFULLGAME0000) the region is `en-us`, the gridName is `HP4497-CUSA16570_00-ASIAFULLGAME0000`
 
 </RouteEn>
 

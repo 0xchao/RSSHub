@@ -4,6 +4,12 @@ pageClass: routes
 
 # News
 
+## AP News
+
+### Topics
+
+<RouteEn author="zoenglinghou" example="/apnews/topics/apf-topnews" path="/apnews/topics/:topic" :paramsDesc="['Topic name，can be found in URL. For example: the topic name of AP Top News [https://apnews.com/apf-topnews](https://apnews.com/apf-topnews) is `apf-topnews`']" radar="1"/>
+
 ## BBC
 
 ### BBC
@@ -17,6 +23,51 @@ Support major channels, refer to [BBC RSS feeds](https://www.bbc.co.uk/news/1062
 -   Channel with a single path, such as `https://feeds.bbci.co.uk/news/business/rss.xml`, use `/bbc/business`.
 -   Channel contains multiple paths, such as `https://feeds.bbci.co.uk/news/world/asia/rss.xml`, replace `/` with `-`, `/bbc/world-asia`.
 -   Exemption: use `/bbc/chinese` for BBC News Chinese, `/bbc/traditionalchinese` for Traditional Chinese.
+
+</RouteEn>
+
+## Boston.com
+
+### News
+
+<RouteEn author="oppilate" example="/boston/technology" path="/boston/:tag?" :paramsDesc="['Tag']">
+
+Generates full-text feeds that the official feed doesn't provide.
+Refer to [Boston.com's feed page](https://www.boston.com/rss-feeds) for tags. For instance, `https://www.boston.com/tag/local-news/?feed=rss` corresponds to `/boston/local-news`.
+
+</RouteEn>
+
+## Chicago Tribune
+
+### News
+
+<RouteEn author="oppilate" example="/chicagotribune/nation-world" path="/chicagotribune/:category/:subcategory?" :paramsDesc="['Category', 'Subcategory']">
+
+Generates full-text that the official feed doesn't provide.
+Refer to [Chicago Tribune's feed page](https://www.chicagotribune.com/about/ct-chicago-tribune-rss-feeds-htmlstory.html) for categories. For instance, `https://www.chicagotribune.com/arcio/rss/category/nation-world/` corresponds to `/chicagotribune/nation-world`.
+
+
+</RouteEn>
+
+## China Dialogue
+
+### Topics
+
+<RouteEn author="zoenglinghou" example="/chinadialogue/topics/cities" path="/chinadialogue/topics/:topic" :paramsDesc="['Topics']">
+
+| Business | Cities | Climate Change            | Conservation | Governance & Law   | Health and Food | Natural Disasters | Pollution | Science & Tech   | Security | Water |
+| -------- | ------ | ------------------------- | ------------ | ------------------ | --------------- | ----------------- | --------- | ---------------- | -------- | ----- |
+| business | cities | climate-change-and-energy | conservation | governance-and-law | health-and-food | natural-disasters | pollution | science-and-tech | security | water |
+
+</RouteEn>
+
+### Columns
+
+<RouteEn author="zoenglinghou" example="/chinadialogue/article" path="/chinadialogue/:column" :paramsDesc="['栏目分类']">
+
+| Articles | Blogs | Culture | Reports |
+| -------- | ----- | ------- | ------- |
+| article  | blog  | culture | reports |
 
 </RouteEn>
 
@@ -38,6 +89,31 @@ Support major channels, refer to [BBC RSS feeds](https://www.bbc.co.uk/news/1062
 
 <RouteEn author="Andiedie" example="/nhk/news_web_easy" path="/nhk/news_web_easy"/>
 
+## RTHK
+
+### News
+
+RTHK offical provides full text RSS, check the offical website for detail information: <https://news.rthk.hk/rthk/en/rss.htm>
+
+This route adds the missing photo and Link element. (Offical RSS doesn't have Link element may cause issue on some RSS client)
+
+<RouteEn author="KeiLongW" example="/rthk-news/hk/international" path="/rthk-news/:lang/:category" :paramsDesc="['Language，Traditional Chinese`hk`，English`en`','Category']">
+
+| local      | greaterchina       | international | finance      | sport      |
+| ---------- | ------------------ | ------------- | ------------ | ---------- |
+| Local News | Greater China News | World News    | Finance News | Sport News |
+
+</RouteEn>
+
+## SCMP
+
+### News
+
+<RouteEn author="proletarius101" example="/scmp/3" path="/scmp/:category_id" :paramsDesc="['Category']">
+
+See the [official RSS page](https://www.scmp.com/rss) to get the ID of each category. This route provides fulltext that the offical feed doesn't.
+
+</RouteEn>
 ## The Economist
 
 ### Category
@@ -70,8 +146,26 @@ Provides a better reading experience (full text articles) over the official one.
 
 通过提取文章全文，以提供比官方源更佳的阅读体验。
 
-| Default to Chinese | Chinese-English | English |
-| ------------------ | --------------- | ------- |
-| (空)               | dual            | en      |
+| Default to Chinese | Chinese-English | English | Chinese-English (Traditional Chinese) | Traditional Chinese |
+| ------------------ | --------------- | ------- | ------------------------------------- | ------------------- |
+| (空)               | dual            | en      | dual-traditionalchinese               | traditionalchinese  |
+
+</RouteEn>
+
+## Yahoo
+
+### News
+
+<RouteEn author="KeiLongW" example="/yahoo-news/hk/world" path="/yahoo-news/:region/:category?" :paramsDesc="['Region','Category']">
+
+`Region`
+| Hong Kong | Taiwan | US |
+| --------- | ------ | --- |
+| hk | tw | en |
+
+`Category`
+| All | World | Business | Entertainment | Sports | Health |
+| ------- | ----- | -------- | ------------- | ------ | ------ |
+| (Empty) | world | business | entertainment | sports | health |
 
 </RouteEn>

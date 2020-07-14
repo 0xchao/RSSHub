@@ -16,27 +16,11 @@ pageClass: routes
 
 <RouteEn author="maple3142" example="/facebook/page/SonetPCR" path="/facebook/page/:id" :paramsDesc="['page id']" anticrawler="1"/>
 
-## Instagram
+## Lofter
 
 ### User
 
-<RouteEn path="/instagram/user/:id" example="/instagram/user/diygod" :paramsDesc="['Instagram id']" anticrawler="1"/>
-
-### Hashtag
-
-<RouteEn author="widyakumara" path="/instagram/tag/:tag" example="/instagram/tag/urbantoys" :paramsDesc="['Instagram hashtag']"  anticrawler="1"/>
-
-### Stories
-
-<RouteEn author="Maecenas" path="/instagram/story/:username" example="/instagram/story/instagram" :paramsDesc="['user name']"/>
-
-## Lofter
-
-::: tip
-
-Official user RSS: http://**:username**.lofter.com/rss
-
-:::
+<RouteEn author="hoilc" example="/lofter/user/tingtingtingtingzhi" path="/lofter/user/:name" :paramsDesc="['Lofter user name, in the URL']"/>
 
 ### Tag
 
@@ -44,9 +28,27 @@ Official user RSS: http://**:username**.lofter.com/rss
 
 ## Mastodon
 
+::: tip
+
+Offical user RSS: https://**:instance**/users/**:username**.atom or https://**:instance**/users/**:username**.rss
+
+For example, https://pawoo.net/users/pawoo_support.atom or https://pawoo.net/users/pawoo_support.rss
+
+:::
+
 ### Timeline
 
 <RouteEn author="hoilc" example="/mastodon/timeline/pawoo.net/true" path="/mastodon/timeline/:site/:only_media?" :paramsDesc="['instance address, noly domain, no `http://` or `https://` protocol header', 'whether only display media content, default to false, any value to true']"/>
+
+## piapro
+
+### User latest works
+
+<RouteEn author="hoilc" example="/piapro/user/shine_longer" path="/piapro/user/:pid" :paramsDesc="['User ID, can be found in url']"/>
+
+### Website latest works
+
+<RouteEn author="hoilc" example="/piapro/public/music/miku/2" path="/piapro/public/:type/:tag?/:category?" :paramsDesc="['work type, can be `music`,`illust`,`text`','`tag` parameter in url','category ID, `categoryId` parameter in url']"/>
 
 ## pixiv
 
@@ -90,7 +92,15 @@ Only for self-hosted
 
 ### Channel
 
-<RouteEn path="/telegram/channel/:username" example="/telegram/channel/awesomeDIYgod" :paramsDesc="['channel name']" />
+<RouteEn path="/telegram/channel/:username/:searchQuery?" example="/telegram/channel/awesomeDIYgod/%23DIYgod的豆瓣动态" :paramsDesc="['channel name', 'search query; replace `#` by `%23` for tag searching']" radar="1">
+
+::: tip
+
+Due to Telegram restrictions, some channels involving pornography, copyright, and politics cannot be subscribed. You can confirm by visiting https://t.me/s/:username.
+
+:::
+
+</RouteEn>
 
 ### Sticker Pack
 
@@ -102,9 +112,15 @@ Only for self-hosted
 
 ## Twitter
 
+::: warning
+
+Due to Twitter API restrictions, the Twitter Routes currently supports tweets within 7 days
+
+:::
+
 ### User timeline
 
-<RouteEn path="/twitter/user/:id" example="/twitter/user/DIYgod" :paramsDesc="['user id']" radar="1" />
+<RouteEn path="/twitter/user/:id/:type?" example="/twitter/user/DIYgod" :paramsDesc="['user id', 'Extra options `exclude_replies` exclude replies,`exclude_rts` exclude retweets,`exclude_rts_replies` exclude replies and retweets, for default include all.']" radar="1" />
 
 ## User following timeline
 
@@ -129,6 +145,10 @@ This route requires Twitter token's corresponding id, therefore it's only availb
 ### Keyword
 
 <RouteEn author="DIYgod" example="/twitter/keyword/RSSHub" path="/twitter/keyword/:keyword" :paramsDesc="['keyword']" radar="1"/>
+
+### Trends
+
+<RouteEn author="sakamossan" example="/twitter/trends/23424856" path="/twitter/trends/:woeid?" :paramsDesc="['Yahoo! Where On Earth ID. default to woeid=1 (World Wide)']" radar="1"/>
 
 ## Youtube
 
